@@ -17,6 +17,7 @@ public class Primes {
             }
             p++;
         }
+        System.out.println("Prime numbers up to " + N + ":");
         int primeCounter = 0;;
         for (int i = 0; i < isPrime.length; i++) {
             if (isPrime[i] == true) {
@@ -24,7 +25,7 @@ public class Primes {
                 primeCounter++;
             }
         }
-        System.out.println("There are " + primeCounter + " primes between 2 and " + N + " (" + ((int)(primeCounter * 100.0) / N) + "% are primes)");
+        System.out.println("There are " + primeCounter + " primes between 2 and " + N + " (" + ((primeCounter * 100) / N) + "% are primes)");
 
 
     }
