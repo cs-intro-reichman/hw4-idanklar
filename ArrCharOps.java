@@ -49,9 +49,9 @@ public class ArrCharOps {
      */
     public static boolean equals(char[] arr1, char[] arr2) {
         boolean isEqual = false;
-        if ((arr1.length != arr2.length) || (arr1.length == 0 || arr2.length == 0)) return false; 
+        if ((arr1.length != arr2.length) || arr1.length == 0 || arr2.length == 0) return false; 
         for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] - 32 == arr2[i] || arr1[i] == arr2[i] - 32 || arr1[i] == arr2[i]) {
+            if (arr1[i] == arr2[i]) {
                 isEqual = true;
             }
             else {
@@ -117,6 +117,7 @@ public class ArrCharOps {
      *  The sub-array begins at the specified beginIndex and extends to the character at index endIndex - 1.
      *  For example, if arr contains the characters "hamburger", then subArray(4, 8) returns an array of
      *  characters containing the characters "urge".
+     * PASSED!
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         char [] newArr = new char [endIndex - beginIndex];
@@ -134,6 +135,7 @@ public class ArrCharOps {
      *  The hash code is computed as: arr[0]*7^(n-1) + arr[1]*7^(n-2) + ... + arr[n-2]*7 + arr[n-1]
      *  where arr[i] is the i'th character of the array, and n is the array's length.
      *  The hash value of an empty array is zero.
+     * PASSED!
      */
     public static long hashCode(char[] arr) {
         long sum = 0;
@@ -172,8 +174,6 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        str1 = str1.toLowerCase();
-        str2 = str2.toLowerCase();
         if (str1.length() > str2.length()) {
             for (int i = 0; i < str2.length(); i++) {
                 if (str1.charAt(i) > str2.charAt(i)) return 1;
