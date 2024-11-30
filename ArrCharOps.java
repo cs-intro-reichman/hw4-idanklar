@@ -49,6 +49,7 @@ public class ArrCharOps {
      */
     public static boolean equals(char[] arr1, char[] arr2) {
         boolean isEqual = false;
+        if (arr1.length == 0 && arr2.length == 0) return true;
         if ((arr1.length != arr2.length) || arr1.length == 0 || arr2.length == 0) return false; 
         for (int i = 0; i < arr1.length; i++) {
             if (arr1[i] == arr2[i]) {
@@ -173,7 +174,9 @@ public class ArrCharOps {
      *         lexicographically greater than str2.
      *         return -2 if there is an error with the input.
      */
-    public static int compareTo(String str1, String str2) {
+    public static int compareTo(String str1, String str2) {   
+        if (str1.length() == 0 || str2.length() == 0) return -2; 
+
         if (str1.length() > str2.length()) {
             for (int i = 0; i < str2.length(); i++) {
                 if (str1.charAt(i) > str2.charAt(i)) return 1;
