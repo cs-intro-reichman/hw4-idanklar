@@ -34,6 +34,7 @@ public class ArrCharOps {
     }
 
     /** Returns the char value at the specified index. Assume that the array is non-empty.
+     * PASSED!
      */
     public static char charAt(char[] arr, int index) {
         char c = ' ';
@@ -48,10 +49,13 @@ public class ArrCharOps {
      */
     public static boolean equals(char[] arr1, char[] arr2) {
         boolean isEqual = false;
-        if ((arr1.length != arr2.length) && (arr1.length == 0 || arr2.length == 0)) return false; 
+        if ((arr1.length != arr2.length) || (arr1.length == 0 || arr2.length == 0)) return false; 
         for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] == arr2[i]) {
+            if (arr1[i] - 32 == arr2[i] || arr1[i] == arr2[i] - 32 || arr1[i] == arr2[i]) {
                 isEqual = true;
+            }
+            else {
+                return false;
             }
         }  
         return isEqual;
@@ -59,6 +63,7 @@ public class ArrCharOps {
 
     /** Returns the index within the given array of the first occurrence of the given character.
      *  If no such character is found, returns -1.
+     * PASSED!
      */
     public static int indexOf(char[] arr, char ch) {
         int index = -1;
@@ -70,6 +75,7 @@ public class ArrCharOps {
     }
 
     /** Same as indexOf(char[], char), but starts the search in the given index.
+     * PASSED!
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
         int index = -1;
@@ -81,6 +87,7 @@ public class ArrCharOps {
 
     /** Returns the index within the given arr of the last occurrence of the given character.
      *  If no such character is found, returns -1.
+     * PASSED!
      */
     public static int lastIndexOf(char[] arr, char ch) {
         for (int i = arr.length - 1; i > 0; i--) {
@@ -90,6 +97,7 @@ public class ArrCharOps {
     }
 
     /* Returns an array which is the concatanation of the two given arrays.
+    PASSED!
     */
     public static char[] concat(char[] arr1, char[] arr2) {
         char [] concatArr = new char[arr1.length + arr2.length];
@@ -111,9 +119,9 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        char [] newArr = new char [(endIndex - beginIndex) + 1];
+        char [] newArr = new char [endIndex - beginIndex];
         int index = 0;
-        for (int i = beginIndex; i <= endIndex; i++) {
+        for (int i = beginIndex; i < endIndex; i++) {
             newArr[index] = arr[i];
             index++;
         }
@@ -168,26 +176,26 @@ public class ArrCharOps {
         str2 = str2.toLowerCase();
         if (str1.length() > str2.length()) {
             for (int i = 0; i < str2.length(); i++) {
-                if (str1.charAt(i) > str2.charAt(i)) return -2;
+                if (str1.charAt(i) > str2.charAt(i)) return 1;
                 else if (str1.charAt(i) < str2.charAt(i)) return -1; 
             }
-            return -2;
+            return 1;
         }
-        if (str1.length() < str2.length()) {
+        else if (str1.length() < str2.length()) {
             for (int i = 0; i < str1.length(); i++) {
-                if (str1.charAt(i) > str2.charAt(i)) return -2;
+                if (str1.charAt(i) > str2.charAt(i)) return 1;
                 else if (str1.charAt(i) < str2.charAt(i)) return -1; 
             }
             return -1;
         }
-        if (str1.length() == str2.length()) {
+        else if (str1.length() == str2.length()) {
             for (int i = 0; i < str2.length(); i++) {
-                if (str1.charAt(i) > str2.charAt(i)) return -2;
+                if (str1.charAt(i) > str2.charAt(i)) return 1;
                 else if (str1.charAt(i) < str2.charAt(i)) return -1; 
             }
             return 0;
         }
-        return -3;
+        return -2;
         
     }
 }
